@@ -82,10 +82,18 @@
 6. 严格解析：文件边界异常、额外字节、字段空白变体、非 base64 密文行均必须失败。
 7. 归一化一致性：大小写/多空白变体经 `mnemonic_canonical` 后必须派生相同 seed。
 
+### 7.1 测试夹具冻结（最小集）
+- 助记词：固定 1 条 English 助记词（12 或 24 词），作为 v1 测试夹具基线。
+- 路径：固定 `index = 777`，即 `m/44'/60'/0'/0/777`。
+- 参数策略：除 `--index` 外不新增业务参数；测试仅围绕现有参数与固定夹具展开。
+- 约束：夹具助记词可用于测试与示例，禁止与任何真实资产共用。
+- 职责分层：`docs/test_vectors.md` 负责确定性密码学向量；`docs/proxy_sol.md` 负责 Markdown 明文输入样本（文件级 round-trip 测试）。
+
 ## 8. 交付物
 - `plan.md`：本精简规范。
 - `dec_plan.md`：加密方案细节（v1）。
 - `docs/recovery.md`：离线恢复说明（含 BIP39/BIP32/BIP44 固定参数）。
 - `cmd/mdlock-enc`、`cmd/mdlock-dec`：两个独立 CLI。
-- `proxy_sol.md`：测试夹具。
+- `docs/test_vectors.md`：测试夹具（固定助记词与向量）。
+- `docs/proxy_sol.md`：待加密明文样本（多格式语料）。
 - `*_test.go`：覆盖派生、加解密、篡改、错误码。
