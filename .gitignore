@@ -34,6 +34,7 @@ go.work.sum
 # OS artifacts
 .DS_Store
 Thumbs.db
+AGENTS.md
 
 # Local temp/backup files
 *.bak
@@ -49,3 +50,4 @@ MDLOCK
 mdlock
 mdlock-enc
 mdlock-dec
+go-wallet-sdk
