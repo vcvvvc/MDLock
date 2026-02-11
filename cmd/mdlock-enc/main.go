@@ -4,40 +4,11 @@ import (
 	"flag"
 	"io"
 	"os"
-	"strconv"
 )
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Getenv))
 
-}
-
-func buildPathFromIndex(index string) (string, bool) {
-
-	if index == "" {
-		return "", false
-	}
-
-	return "m/44'/60'/0'/0/" + index, true
-}
-
-func validateIndex(index string) bool {
-	if len(index) > 1 && index[0] == '0' {
-		return false
-	} else if len(index) > 0 {
-		for i := 0; i < len(index); i++ {
-			if (index)[i] < '0' || (index)[i] > '9' {
-				return false
-			}
-		}
-	}
-
-	n, err := strconv.ParseInt(index, 10, 64)
-	if err != nil || n > 2147483647 {
-		return false
-	}
-
-	return true
 }
 
 // Why(中文): 先冻结参数与退出码语义，后续接入加密逻辑时可避免 CLI 行为漂移。

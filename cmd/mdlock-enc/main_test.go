@@ -72,13 +72,3 @@ func TestRunValidIndexMaxBoundary(t *testing.T) {
 		t.Fatalf("expected 0, got %d", code)
 	}
 }
-
-func TestBuildPathFromIndex777(t *testing.T) {
-	path, ok := buildPathFromIndex("777")
-	if !ok {
-		t.Fatalf("expected ok=true")
-	}
-	if path != "m/44'/60'/0'/0/777" {
-		t.Fatalf("unexpected path: %s", path)
-	}
-}
