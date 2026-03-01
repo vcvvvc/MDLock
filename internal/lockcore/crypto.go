@@ -3,10 +3,10 @@ package lockcore
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"errors"
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
+	"errors"
 	"io"
 )
 
@@ -51,8 +51,6 @@ func hkdfSHA256(ikm []byte, salt []byte, info []byte, size int) []byte {
 // Why(English): Keep AAD serialization frozen in one function to prevent accidental ordering/newline drift that breaks compatibility.
 func buildAADV1(path string, saltB64 string, nonceB64 string) []byte {
 	return []byte("txlock:v1\n" +
-		"chain:ethereum\n" +
-		"path:" + path + "\n" +
 		"kdf:hkdf-sha256\n" +
 		"aead:aes-256-gcm\n" +
 		"salt_b64:" + saltB64 + "\n" +

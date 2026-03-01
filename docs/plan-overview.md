@@ -28,7 +28,6 @@
 ## 4. 文件格式（Markdown 保证格式稳定）
 - 输出为单个 HTML 注释块，头字段固定：
   - `txlock:v1`
-  - `chain:ethereum`
   - `kdf:hkdf-sha256`
   - `aead:aes-256-gcm`
   - `salt_b64:<raw-base64>`

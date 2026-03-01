@@ -65,8 +65,6 @@
 
 ```text
 txlock:v1\n
-chain:ethereum\n
-path:<PATH>\n
 kdf:hkdf-sha256\n
 aead:aes-256-gcm\n
 salt_b64:<SALT_B64>\n
