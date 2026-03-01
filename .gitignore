@@ -42,16 +42,11 @@ Thumbs.db
 *.swp
 *.swo
 
-# Local scratch planning file
-_PLAN.md
-
 # Local binaries from `go build` / `go run`
-/MDLOCK
 /txlock
 /txlock-enc
 /txlock-dec
 /lockfile/
 /bin
-go-wallet-sdk
 !internal/lockcore/
 !internal/lockcore/**
